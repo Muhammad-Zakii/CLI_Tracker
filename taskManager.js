@@ -43,12 +43,9 @@ const addTask = (description) => {
 // Update a task description
 const updateTask = (id, newDescription) => {
   const tasks = loadTasks();
-  console.log("Loaded tasks:", tasks); // Debugging: Log the loaded tasks
-
   const taskIndex = tasks.findIndex((task) => task.id === parseInt(id));
 
   if (taskIndex !== -1) {
-    console.log("Task found:", tasks[taskIndex]); // Debugging: Log the found task
     tasks[taskIndex].description = newDescription;
     tasks[taskIndex].updatedAt = new Date().toISOString(); // Update updatedAt
     saveTasks(tasks);
